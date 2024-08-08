@@ -20,11 +20,11 @@ class HelloControllerTest {
     MockMvc mvc;
 
     @Test
-    @WithMockUser
+    @WithMockUser // Logged dich ein!
     public void test() throws Exception {
         mvc.perform(MockMvcRequestBuilders.post("/api/hello")
                 .content("Test")
-                        .with(csrf()))
+                        .with(csrf())) //Simuliert gültigen CSRF
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
